@@ -51,8 +51,8 @@ class Body():
         self.pos = [sum(c) for c in zip(self.pos, self.speed)]
 
 b1 = Body("b1", [0, 0, 0], 5e24)       # Earth-like mass at origin
-b2 = Body("b2", [1.5e7, 0, 0], 1e22)   # Smaller body at 15,000 km on x-axis
-b3 = Body("b3", [0, 1.5e7, 0], 1e22)   # Smaller body at 15,000 km on y-axis
+b2 = Body("b2", [1.5e7, 0, 0], 1e23)   # Smaller body at 15,000 km on x-axis
+b3 = Body("b3", [0, 1.5e7, 0], 1e23)   # Smaller body at 15,000 km on y-axis
 
 bodies = [b1, b2, b3]
 
@@ -84,7 +84,7 @@ def update(frame):
         body.compute_force(temp_bodies)
     # Update all positions
     for body in bodies:
-        body.update(dt=1000)
+        body.update(dt=300)
         # Add current position to trail
         body.trail_x.append(body.pos[0])
         body.trail_y.append(body.pos[1])
